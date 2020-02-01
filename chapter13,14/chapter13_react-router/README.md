@@ -5,6 +5,7 @@
 SPA는 Single Page Application의 약어다. 하나의 페이지로 이루어진 애플리케이션이라는 의미다.
 <br>
 ![img](SPA.png)
+<br>
 기존 웹 어플리케이션의 경우 오른쪽과 같이 다른 페이지로 이동될 때마다 새로운 html을 받아와 redirect되는 식이다. View를 서버에서 만들어 제공하는 형태인 것이다.
 <br>
 <br>
