@@ -160,3 +160,51 @@ runTasks();
 
 axios는 현재 가장 많이 사용되는 HTTP 클라이언트 라이브러리이다.<br>
 특징은 Promise를 기반으로 처리한다는 점이다.
+
+비슷한 라이브러리인 Fetch API와의 차이점은 아래와 같다.
+<ol>
+    <li>구형 브라우저 지원</li>
+    <li>요청 중단 가능</li>
+    <li>응답 시간 초과 설정</li>
+    <li>CSRF 보호 기능 내장</li>
+    <li>JSON 데이터 자동 변환</li>
+</ol>
+
+`사용법`
+
+기본 사용법은 jQuery의 ajax와 비슷하다.
+```
+    axois({
+        url: 'https://localhost/api...',
+        method: 'get,
+        data: {
+            text : 'text'
+        }
+    });
+
+    axios.get();
+    axios.post();
+    axios.delete();
+    ...
+```
+
+하지만 대부분 위의 방법보다 Promise나 async/await을 이용한 방법으로 사용한다.
+
+```
+    
+    // Promise 구문을 사용한 방법
+    axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => {
+       return response.data;
+    });
+
+    // async/await 구문을 사용한 방법
+    const getData = async () => {
+        try {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1);
+            return resopose.data;
+        } catch(e) {
+            console.error(e);
+        }
+    };
+```
