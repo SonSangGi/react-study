@@ -19,6 +19,10 @@ const SelectColors = () => {
                   cursor: 'pointer',
                 }}
                 onClick={() => actions.setColor(color)}
+                onContextMenu={e => {
+                  e.preventDefault();
+                  actions.setSubColor(color);
+                }}
               />
             ))}
           </div>
