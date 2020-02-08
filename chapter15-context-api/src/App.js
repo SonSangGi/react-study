@@ -1,13 +1,15 @@
-import React from './react';
-import logo from './logo.svg';
+import React from 'react';
 import ColorBox from './components/ColorBox';
+import ColorContext from './contexts/color';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <ColorBox />
-    </div>
+    <ColorContext.Provider value={{ color: 'red' }}>
+      <div>
+        <ColorBox />
+      </div>
+    </ColorContext.Provider>
   );
-}
+};
 
 export default App;
