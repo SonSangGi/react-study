@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import WaitingListContainer from './containers/WaitingListContainer';
+import WaitingList from './components/WaitingList';
 import PaletteContainer from './containers/PaletteContainer';
 import CouterContainer from './containers/CouterContainer';
 
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <PaletteContainer />
         <CouterContainer />
-        <WaitingListContainer />
+        <WaitingList />
       </div>
     );
   }

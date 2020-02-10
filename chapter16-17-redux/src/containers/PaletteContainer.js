@@ -9,6 +9,7 @@ import Palette from '../components/Palette';
 
 const PaletteContainer = props => {
   const handleSelect = color => {
+    console.log(color);
     const { changeColor } = props;
     changeColor(color);
   };

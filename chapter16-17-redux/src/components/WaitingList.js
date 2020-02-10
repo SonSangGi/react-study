@@ -13,35 +13,19 @@ const WaitingItem = ({ text, entered, onEnter, onLeave }) => {
   );
 };
 
-const WaitingList = ({
-  input,
-  waitingList,
-  onChange,
-  onSubmit,
-  onEnter,
-  onLeave,
-}) => {
-  const waitingItems = waitingList.map(w => {
-    return (
-      <WaitingItem
-        key={w.id}
-        text={w.name}
-        entered={w.entered}
-        id={w.id}
-        onEnter={() => onEnter(w.id)}
-        onLeave={() => onLeave(w.id)}
-      />
-    );
-  });
-
+const WaitingList = ({ waitingList, onEnter, onLeave }) => {
   return (
     <div className="WaitingList">
       <h2>대기자 명단</h2>
-      <form onSubmit={onSubmit}>
-        <input value={input} onChange={onChange} />
+      <form>
+        <input />
         <button>등록</button>
       </form>
-      <ul>{waitingItems}</ul>
+      <ul>
+        <WaitingItem text="홍길동" entered />
+        <WaitingItem text="콩쥐" />
+        <WaitingItem text="팥쥐" />
+      </ul>
     </div>
   );
 };
