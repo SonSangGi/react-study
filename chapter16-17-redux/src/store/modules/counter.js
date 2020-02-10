@@ -19,7 +19,6 @@ const initialState = {
 
 // 리듀서 작성
 export default function couter(state = initialState, action) {
-  console.log(state);
   switch (action.type) {
     case CHANGE_COLOR:
       return {
