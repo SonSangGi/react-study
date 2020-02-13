@@ -7,8 +7,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './modules';
 import loggerMiddleware from './lib/loggerMiddleware';
+import { createLogger } from 'redux-logger';
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
+const store = createStore(rootReducer, applyMiddleware(createLogger()));
 
 console.log(store.getState());
 
