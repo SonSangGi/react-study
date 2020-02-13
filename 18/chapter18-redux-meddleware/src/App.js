@@ -5,8 +5,8 @@ import Sample from './containers/SampleContainer';
 
 const App = () => (
   <div>
-    {/* <Couter /> */}
-    <Sample />
+    <Couter />
+    {/* <Sample /> */}
   </div>
 );
 export default App;

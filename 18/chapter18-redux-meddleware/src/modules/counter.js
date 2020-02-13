@@ -10,7 +10,6 @@ export const decrease = createAction(DECREASE);
 
 // 1초 뒤에 increase 혹은 decrease를 디스패치함
 export const increaseAsync = () => dispatch => {
-  alert(dispatch);
   setTimeout(() => {
     dispatch(increase());
   }, 1000);

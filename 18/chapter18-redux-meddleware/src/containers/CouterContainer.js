@@ -5,7 +5,7 @@ import {
   decrease,
   increaseAsync,
   decreaseAsync,
-} from '../modules/counter';
+} from '../modules/couter-saga';
 import Counter from '../components/Couter';
 
 const CouterContainer = ({
