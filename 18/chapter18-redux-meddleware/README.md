@@ -109,3 +109,61 @@ ReactDOM.render(...);
 <img src="redux-logger.png" width="400"/>
 
 위처럼 미들웨어는 오픈소스가 많아 라이브러리로 설치해서 사용하는 경우가 많다.
+
+## 비동기 작업을 처리하는 미들웨어
+
+비동기 작업을 처리할 때 도움을 주는 미들웨어는 정말 다양하다.
+책에서는
+
+- redux-thunk: 비동기 작업을 처리할 때 가장 기본적으로 상용되는 미들웨어
+- redux-saga: 두번째로 많이 사용되는 미들웨어다. 특정 액션이 디스패치되었을 때 정해진 로직에 따라 다른 액션을 디스패치 시키는 규칙을 작성하여 비동기 작업을 처리할 수 있게 해준다.
+
+책에서는 두가지를 이용해 비동기 작업을 구현한다.
+
+### redux-thunk
+
+thunk란?<br>
+특정 작업을 나중으로 미루기 위해 함수 형태로 감싼 것을 의미한다.
+
+연산 작업을 나중으로 미루기 위한 코드이다.
+
+```js
+// 주어진 파라미터에 1을 더하는 함수
+const addOne = x => x + 1;
+
+function addOneThunk(x) {
+  const thunk = () => addOne(x);
+  return thunk;
+}
+
+const fn = addOneThunk(1);
+setTimeout(() => {
+  const value = fn();
+  console.log(value);
+}, 1000);
+```
+
+위를 화살표 함수로만 사용한다면 다음과 같이 구현할 수 있다.
+
+```js
+const addOne = x => x + 1;
+const addOneThunk = x => () => addOne(x);
+
+const fn = addOneThunk(1);
+setTimeout(() => {
+  const value = fn();
+  console.log(value);
+}, 1000);
+```
+
+redux-thunk 라이브러리를 사용하면 thunk함수를 만들어서 디스패치할 수 있다.
+리덕스 미들웨어가 thunk함수를 전달받아 store의 dispath와 getState를 파라미터로 넣어서 호출한다.
+
+다음은 redux-thunk에서 사용할 수 있는 예시 thunk함수이다.
+
+```js
+const sampleThunk = () => (dispath,getState) =>> {
+  // 현재 상태를 참조할 수 있고,
+  // 새 액션을 디스패치할 수도 있다.
+}
+```

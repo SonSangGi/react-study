@@ -8,6 +8,19 @@ const DECREASE = 'couter/DECREASE';
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
 
+// 1초 뒤에 increase 혹은 decrease를 디스패치함
+export const increaseAsync = () => dispatch => {
+  alert(dispatch);
+  setTimeout(() => {
+    dispatch(increase());
+  }, 1000);
+};
+export const decreaseAsync = () => dispatch => {
+  setTimeout(() => {
+    dispatch(decrease());
+  }, 1000);
+};
+
 // 상태는 꼭 객체일 필요 없다.
 const initialState = 0;
 
