@@ -11,7 +11,8 @@ export const decrease = createAction(DECREASE);
 // 상태는 꼭 객체일 필요 없다.
 const initialState = 0;
 
-const couter = handleActions(
+// 리듀서 작성
+const counter = handleActions(
   {
     [INCREASE]: state => state + 1,
     [DECREASE]: state => state - 1,
@@ -19,4 +20,4 @@ const couter = handleActions(
   initialState,
 );
 
-export default couter;
+export default counter;

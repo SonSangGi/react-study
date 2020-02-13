@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import couter from './counter';
+import counter from './counter';
 
 export default combineReducers({
-  couter,
+  counter,
 });

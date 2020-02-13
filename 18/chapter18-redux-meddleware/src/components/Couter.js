@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Container에서 전달 받을 값
 const Couter = ({ onIncrease, onDecrease, number }) => {
   return (
     <div>
