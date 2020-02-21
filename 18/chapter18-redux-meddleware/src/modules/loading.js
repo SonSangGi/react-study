@@ -32,4 +32,5 @@ const loading = handleActions(
   },
   initialState,
 );
+
 export default loading;

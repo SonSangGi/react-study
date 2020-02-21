@@ -1,7 +1,8 @@
 import { handleActions, createAction } from 'redux-actions';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as api from '../lib/api';
-import { startLoading, finishLoading } from './loading';
+//import { startLoading, finishLoading } from './loading';
+import createRequestSaga from '../lib/createRequestSaga';
 
 // 액션 타입을 선언한다.
 const GET_POST = 'sample/GET_POST';
@@ -15,6 +16,10 @@ const GET_USERS_FAILURE = 'sample/GET_USERS_FAILURE';
 export const getPost = createAction(GET_POST, id => id);
 export const getUsers = createAction(GET_USERS);
 
+const getPostSaga = createRequestSaga(GET_POST, api.getPost);
+const getUsersSaga = createRequestSaga(GET_USERS, api.getUsers);
+
+/*
 function* getPostSaga(action) {
   yield put(startLoading(GET_POST)); // 로딩 시작
   // 파라미터로 action을 받아오면 모든 액션의 정볼르 조회할 수 있다.
@@ -55,6 +60,7 @@ function* getUsersSaga(action) {
   }
   yield put(finishLoading(GET_USERS)); // 로딩 완료
 }
+*/
 
 export function* sampleSaga() {
   yield takeLatest(GET_POST, getPostSaga);
